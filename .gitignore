@@ -205,3 +205,21 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Python internals
+__pycache__/
+*.py[cod]
+
+# Streamlit config
+.streamlit/
+
+# Temporary GPX files created by your app
+temp_*.gpx
+
+# Mac system files
+.DS_Store
+
+# Virtual Environments (if you use them)
+venv/
+env/
+.env
