@@ -17,7 +17,7 @@ def get_wind_cardinal(deg):
     ix = int((deg + 11.25)/22.5)
     return dirs[ix % 16]
 
-st.set_page_config(page_title="Power Target Estimator", page_icon="⚡")
+st.set_page_config(page_title="Power Target Estimator", page_icon="🚴")
 
 # --- SIDEBAR (Advanced Physics) ---
 st.sidebar.title("🚴 Simulation Settings")
