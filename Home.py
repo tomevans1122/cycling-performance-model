@@ -25,7 +25,7 @@ This model uses real-world physics—accounting for your power, weight, gravity,
     Best for answering: *"What average wattage do I need to ride this course in 1 hour?"*
 
 * **📈 Race Strategy Optimiser**:
-    Uses a Genetic Algorithms to generate an optimised pacing plan.
+    Uses a Genetic Algorithm to generate an optimised pacing plan.
     Instead of riding at a constant speed, this tool calculates exactly where to push hard (hills) and where to recover to minimize your total time.
 
 ---
