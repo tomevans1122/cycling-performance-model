@@ -10,9 +10,25 @@ st.title("Cycling Performance Modeller")
 
 # --- INTRO ---
 st.markdown("""
-**Analyse your cycling performance on any route.** Simply upload a **GPX file** (exported from Strava, Garmin, RideWithGPS, etc.) or test the tool immediately using one of the built-in demo files.
+**Analyse your cycling performance on any route.** Simply upload a **GPX file** (exported from Strava, Garmin, RideWithGPS, etc.) or test the tools immediately using one of the built-in demo files.
 
 This model uses real-world physics—accounting for your power, weight, gravity, and wind—to predict exactly how you will perform on race day.
+
+### Which tool should I use?
+
+* **⏱️ Ride Time Calculator**
+    *Input your power to see how fast you will ride.*
+    Best for answering: *"If I hold 200 Watts, what time will I finish?"*
+
+* **⚡ Power Plan Estimator**
+    *Input your target time to see the required power.*
+    Best for answering: *"What average wattage do I need to ride this course in 1 hour?"*
+
+* **📈 Race Strategy Optimiser**
+    *Uses a Genetic Algorithms to generate an optimised pacing plan.*
+    Instead of riding at a constant speed, this tool calculates exactly where to push hard (hills) and where to recover to minimize your total time.
+
+---
 
 *Select a tool below to begin!*
 """)
