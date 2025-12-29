@@ -58,11 +58,25 @@ else:
     st.sidebar.caption(f"Standard value: **{cda}**")
 
 # 3. ROLLING RESISTANCE
-st.sidebar.header("3. Tyres & Road")
-crr_choice = st.sidebar.selectbox("Tyre/Road Quality", 
-    ["Race Tyres / Smooth Road", "Standard Tyres / Average Road", "Gravel / Rough Road"], index=1)
-crr_map = {"Race Tyres / Smooth Road": 0.0035, "Standard Tyres / Average Road": 0.0050, "Gravel / Rough Road": 0.0080}
-crr = crr_map[crr_choice]
+st.sidebar.header("3. Rolling Resistance (Crr)")
+tyre_options = {
+    "Top-Tier Race (Latex/Tubeless)": 0.0030, "Mid-Range Performance (GP5000)": 0.0040,
+    "Training / Endurance (Gatorskin)": 0.0060, "Gravel / Cyclocross": 0.0070, "MTB Knobby": 0.0100
+}
+surface_options = {
+    "Smooth New Asphalt": 0.0010, "Average Road (Worn Asphalt)": 0.0025,
+    "Rough Road / Chip Seal": 0.0050, "Light Gravel / Hardpack": 0.0070, "Heavy Gravel / Dirt": 0.0120
+}
+crr_mode = st.sidebar.radio("Input Mode", ["Auto-Calculate", "Manual Override"], horizontal=True)
+
+if crr_mode == "Auto-Calculate":
+    selected_tyre = st.sidebar.selectbox("Tyre Choice", list(tyre_options.keys()), index=1)
+    selected_surface = st.sidebar.selectbox("Road Condition", list(surface_options.keys()), index=1)
+    
+    crr = tyre_options[selected_tyre] + surface_options[selected_surface]
+    st.sidebar.info(f"Calc: {tyre_options[selected_tyre]:.4f} (Tyre) + {surface_options[selected_surface]:.4f} (Surface)")
+else:
+    crr = st.sidebar.number_input("Custom Crr", value=0.0050, step=0.0005, format="%.4f", min_value=0.0)
 
 # 4. DRIVETRAIN EFFICIENCY
 st.sidebar.header("4. Mechanical Efficiency")
