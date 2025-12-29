@@ -189,7 +189,7 @@ def plot_pacing_strategy_guide(course_name, gpx_track_points, optimized_power_pr
     return fig
 
 # --- STREAMLIT PAGE SETUP ---
-st.set_page_config(page_title="Race Strategy Optimiser", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Race Strategy Optimiser", page_icon="🚴", layout="wide")
 
 # --- SIDEBAR ---
 st.sidebar.title("🚴 Simulation Settings")
