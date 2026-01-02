@@ -79,7 +79,7 @@ st.markdown("""
 * $C_d A$: Drag area ($m^2$)
 * $v_{rel}$: Air speed relative to the rider
 
-The resistance from the air. Note that it increases with the **square** of the speed ($v^2$)—doubling the speed requires four times the force.
+The resistance from the air. Note that it increases with the **square** of the speed ($v^2$), doubling the speed requires four times the force.
 """)
 
 # Force 2.4
@@ -152,7 +152,7 @@ This is a search heuristic inspired by Charles Darwin's theory of natural select
 """)
 
 st.markdown("#### **Step 1: Population (The Gene Pool)**")
-st.markdown("The algorithm starts by creating a random population of 'riders'. Each rider has a unique DNA—a sequence of power outputs for every segment of the course.")
+st.markdown("The algorithm starts by creating a random population of 'riders'. Each rider has a unique DNA, a sequence of power outputs for every segment of the course.")
 st.markdown("For example, one rider's DNA might dictate attacking steep gradients aggressively while recovering on flats, while another rider's DNA might attempt a steady, conservative effort throughout. This variety creates a diverse pool of strategies to test.")
 st.write("")
 
@@ -325,7 +325,7 @@ with st.expander("🛠️ System Architecture & Data Processing (Click to Expand
     * **Geodesic Distance Calculation:** Instead of simple 2D geometry, the system uses the **Haversine Formula** to calculate precise distances over the Earth's curvature between latitude/longitude points.
 
     * **Adaptive Signal Smoothing:** GPS vertical error can create "phantom walls" (e.g., a 1m error over 5m creates a fake 20% gradient). 
-        To fix this, the system applies **Savitzky–Golay Filtering**. The **window size is dynamic**—it automatically adjusts based on the data density (points per km) of the uploaded file.
+        To fix this, the system applies **Savitzky–Golay Filtering**. The **window size is dynamic**, it automatically adjusts based on the data density (points per km) of the uploaded file.
 
     * **Intelligent Macro-Segmentation:** To make optimisation computationally feasible, the system doesn't optimise every single second. 
         Instead, it algorithmically groups the course into **Macro Segments** (e.g., "Steady Climb," "Fast Descent," "Flat Transition") based on gradient thresholds. This allows the Genetic Algorithm to assign strategic power targets to logical sections of the road.
