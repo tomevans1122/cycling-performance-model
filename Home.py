@@ -29,7 +29,7 @@ This model uses real-world physics, accounting for your power, weight, gravity a
 
 * **📈 Race Strategy Optimiser**:
     Uses a Genetic Algorithm to generate an optimised pacing plan.
-    Instead of riding at a constant speed, this tool calculates exactly where to push hard (hills) and where to recover to minimize your total time.
+    Instead of riding at a constant speed, this tool calculates exactly where to push hard and where to recover to minimize your total time.
 
 *Select a tool below to begin!*
 \n
@@ -42,7 +42,7 @@ This model uses real-world physics, accounting for your power, weight, gravity a
 with st.expander("ℹ️ Important: Read about the 'Constant Power' assumption"):
     st.markdown("""
     **1. The Assumption**
-    The *Ride Time Calculator* and *Power Estimator* tools assume a **Constant Power Output**. They calculate what happens if you hold the exact same wattage for every second of the ride—never surging, never resting.
+    The *Ride Time Calculator* and *Power Estimator* tools assume a **Constant Power Output**. They calculate what happens if you hold the exact same wattage for every second of the ride, never surging, never resting.
 
     **2. The Reality**
     Real riding is dynamic. If you generally average **100 Watts** but hit a steep gradient, you would naturally surge to **150 Watts+** to clear the obstacle.
@@ -82,7 +82,7 @@ st.markdown("**Generate a scientifically optimal pacing plan.**")
 st.info("""
 Upload a GPX file and let the Genetic Algorithm determine the most efficient way to distribute your energy across the course. 
 
-Curious how the Genetic Algorithm works? See **About the Project**
+Curious about how the Genetic Algorithm works? See **About the Project**
 """)
 if st.button("Start Strategy Optimiser"):
     st.switch_page("pages/3_Race_Optimiser.py")
