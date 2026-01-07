@@ -23,7 +23,7 @@ st.markdown("---")
 st.header("⚙️ How the Model Works")
 
 st.markdown("""
-The model breaks the route into tiny "time steps" (e.g., every 1 second). 
+The model breaks the route into tiny "time steps" (e.g. every 1 second). 
 At each step, it calculates both the **Mechanical Forces** acting on the bike and the **Physiological State** of the rider.
 """)
 
@@ -65,7 +65,7 @@ st.markdown("#### **2.2. Rolling Resistance ($F_{roll}$)**")
 st.latex(r"F_{roll} = C_{rr} \cdot m \cdot g \cdot \cos(\theta)")
 st.markdown("""
 **Where:**
-* $C_{rr}$: Rolling Resistance Coefficient (e.g., 0.005)
+* $C_{rr}$: Rolling Resistance Coefficient (e.g. 0.005)
 
 The friction generated as the tyres deform against the road surface.
 """)
@@ -196,7 +196,7 @@ st.markdown("#### **The 'Battery' Analogy**")
 st.markdown("""
 Energy is conceptualised as a battery ($W'$ in Joules) that operates above the rider's Critical Power ($CP$).
 * **Burning Matches:** When riding **above** Threshold ($CP$), the battery drains. The harder the effort, the faster the depletion.
-* **Recharging:** When riding **below** Threshold, the battery recovers. Following Skiba's model, this recovery is **exponential**: the further the power drops below the threshold (e.g., coasting vs. soft pedaling), the significantly faster the recovery occurs.
+* **Recharging:** When riding **below** Threshold, the battery recovers. Following Skiba's model, this recovery is **exponential**: the further the power drops below the threshold (e.g. coasting vs. soft pedaling), the significantly faster the recovery occurs.
 * **The 'Bonk':** If the battery hits 0%, the rider is considered exhausted. The simulation forces the power down to a recovery intensity until the balance is restored.
 """)
 
@@ -324,11 +324,11 @@ with st.expander("🛠️ System Architecture & Data Processing (Click to Expand
 
     * **Geodesic Distance Calculation:** Instead of simple 2D geometry, the system uses the **Haversine Formula** to calculate precise distances over the Earth's curvature between latitude/longitude points.
 
-    * **Adaptive Signal Smoothing:** GPS vertical error can create "phantom walls" (e.g., a 1m error over 5m creates a fake 20% gradient). 
+    * **Adaptive Signal Smoothing:** GPS vertical error can create "phantom walls" (e.g. a 1m error over 5m creates a fake 20% gradient). 
         To fix this, the system applies **Savitzky–Golay Filtering**. The **window size is dynamic**, it automatically adjusts based on the data density (points per km) of the uploaded file.
 
     * **Intelligent Macro-Segmentation:** To make optimisation computationally feasible, the system doesn't optimise every single second. 
-        Instead, it algorithmically groups the course into **Macro Segments** (e.g., "Steady Climb," "Fast Descent," "Flat Transition") based on gradient thresholds. This allows the Genetic Algorithm to assign strategic power targets to logical sections of the road.
+        Instead, it algorithmically groups the course into **Macro Segments** (e.g. "Steady Climb," "Fast Descent," "Flat Transition") based on gradient thresholds. This allows the Genetic Algorithm to assign strategic power targets to logical sections of the road.
     """)
 
 # --- SIDEBAR FOOTER ---
