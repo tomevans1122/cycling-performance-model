@@ -333,12 +333,22 @@ with st.expander("⚙️ Configure Genetic Algorithm", expanded=True):
     
     st.info("🔒 **Server Limits:** Parameters are capped at 10 to ensure server stability.")
     
-    st.info("""
+    st.markdown("""
+    **💡 How this works:**
+    Generally, higher ***Population*** and ***Generations*** values allow the algorithm to find a faster, more perfect strategy, but they take significantly longer to compute.
+    * **Higher Population:** Explores a wider variety of tactics.
+    * **More Generations:** Refines the best tactics to perfection.
+    *(These are capped in this demo to ensure the results load quickly).*
+    """)
+    st.markdown("---")
+    
+    st.markdown("""
     **🫁 Physiological Constraints Active:**
     The Genetic Algorithm is bounded by the **Critical Power Model**. It will not generate a strategy that requires physically impossible power for a given segment duration.
     * **Sprints:** Allowed on short, steep segments (using $W'$).
     * **Endurance:** Enforced on long climbs (preserving $W'$).
     """)
+    st.markdown("---")   
     
     st.warning("⚠️ **Performance Warning:** For long courses (>50 km) or routes with frequent gradient changes, a setting of 10 can still lead to timeouts. If the app becomes unresponsive, reduce these values.")
 
@@ -534,7 +544,10 @@ if file_path:
                 st.table(pd.DataFrame(comparison_data, index=["Constant Power (Baseline)", "Optimised Strategy", "Difference"]))
                 
                 
-                if time_diff > 0: st.info(f"⚡ **Optimisation Gain:** {diff_str} faster than riding at constant power.")
+                if time_diff > 0: 
+                    # Calculate percentage improvement
+                    percent_improvement = (time_diff / base_time) * 100
+                    st.success(f"⚡ **Optimisation Gain:** {diff_str} faster (**{percent_improvement:.1f}%**) than riding at constant power.")
 
                 # --- NEW NUTRITION SECTION ---
                 st.markdown("---")
