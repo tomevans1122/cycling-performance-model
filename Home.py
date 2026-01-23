@@ -6,7 +6,22 @@ import analytics
 
 # Inject Google Analytics (Optional)
 # This allows tracking of visitor numbers and page views if a GA tag is configured.
-analytics.inject_ga()
+def inject_ga():
+    # Replace G-XXXXXXXXXX with your actual Tracking ID
+    GA_ID = "G-XXXXXXXXXX"
+    
+    # Note: Streamlit runs components in an iframe, so this isn't perfect, 
+    # but it works without crashing the server.
+    ga_code = f"""
+    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+      gtag('config', '{GA_ID}');
+    </script>
+    """
+    st.components.v1.html(ga_code, height=0, width=0)
 
 # --- PAGE CONFIGURATION ---
 # Sets the browser tab title, favicon (cyclist emoji), and layout mode.
