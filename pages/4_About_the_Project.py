@@ -52,7 +52,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.info("**Total Mass ($m$)**\n\nThe combined weight of the rider and bike.")
-    st.info("**Power ($P$)**\n\nWatts generated, adjusted for drivetrain efficiency ($\eta \\approx 96\%$).")
+    st.info("**Power ($P$)**\n\nWatts generated, adjusted for drivetrain efficiency ($\\eta \approx 96\%$).")
 
 with col2:
     st.info("**Aerodynamics ($C_d A$)**\n\nDynamic: The rider 'tucks' on descents (reducing drag) and sits up on climbs.")
@@ -127,7 +127,7 @@ A key metric here is the **Radius of Curvature ($r$)**, which represents the "ti
 """)
 
 st.markdown("#### **The 'Look-Ahead' Scan**")
-st.markdown("""
+st.markdown(r"""
 * **Detection:** The engine analyses points ahead to calculate the radius of curvature ($r$) for approaching turns.
 * **Safety Limit:** It calculates the maximum safe speed for that radius based on the available tyre friction ($\mu$).
 * **Braking Logic:** If the rider approaches a corner too fast, the simulation applies a "Virtual Brake" (forcing 0 Watts) to slow the bike to the safe speed *before* entering the turn.
@@ -135,7 +135,7 @@ st.markdown("""
 
 st.markdown("#### **Cornering Speed Limit Equation**")
 st.latex(r"v_{max} = \sqrt{\mu \cdot g \cdot r}")
-st.markdown("""
+st.markdown(r"""
 **Where:**
 * $\mu$: Friction Coefficient (e.g. 0.8 for dry tarmac)
 * $g$: Gravity ($9.81 m/s^2$)
@@ -161,7 +161,7 @@ st.markdown("This calculates the precise acceleration (or deceleration) of the c
 
 st.write("3. **Update Speed & Distance:** Apply acceleration to the next time step.")
 st.latex(r"v_{new} = v_{old} + (a \cdot \Delta t)")
-st.markdown("The system uses the calculated acceleration to update the rider's velocity and position for the subsequent time interval ($t + \Delta t$).")
+st.markdown(r"The system uses the calculated acceleration to update the rider's velocity and position for the subsequent time interval ($t + \Delta t$).")
 
 st.write("4. **Repeat:** This process repeats for every single second of the ride until the finish line.")
 st.markdown("The simulation iterates through this cycle thousands of times, recalculating physics at every second to build a complete, high-resolution profile of the ride.")
@@ -264,7 +264,7 @@ st.markdown("#### **7.1. Energy Expenditure**")
 st.markdown("First, we convert the mechanical work you put into the pedals (kJ) into the actual metabolic cost for your body (kcal).")
 st.latex(r"E_{kcal} \approx W_{kJ} \times \frac{1}{4.184 \cdot \eta_{gross}}")
 
-st.markdown("""
+st.markdown(r"""
 **Where:**
 * $E_{kcal}$ – Metabolic Cost (kcal)
 * $W_{kJ}$ – Mechanical Work (kJ)
