@@ -1,0 +1,87 @@
+{
+    "course_settings": {
+        "gpx_filename": "Demo_Rolling_BoxHill.gpx",
+        "ambient_temperature_celsius": 20.0,
+        "global_wind_speed_kmh": 0,
+        
+        "_options_wind": [
+            "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+            "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
+        ],
+        "global_wind_direction_input": "W"
+    },
+    
+    "rider_settings": {
+        "rider_ftp_watts": 200.0,
+        "rider_mass_kg": 75.0,
+        "rider_height_cm": 178,
+        "bike_mass_kg": 8.5,
+        "w_prime_capacity_j": 15000.0,
+        
+        "_options_cda": [
+            "TT Bike (Aero Bars)", 
+            "Road Bike (Aero Bars)", 
+            "Road Bike (Drops)", 
+            "Road Bike (Hoods)", 
+            "Road Bike (Tops)", 
+            "Gravel Bike (Drops)", 
+            "Gravel Bike (Hoods)", 
+            "Gravel Bike (Tops)", 
+            "Mountain Bike (Tops)"
+        ],
+        "cda_input": "Road Bike (Drops)",
+        
+        "_options_mech": [
+            "Optimised (Waxed / Ceramic)",
+            "Standard (Clean & Lubed)",
+            "Neglected (Dirty / Old)"
+        ],
+        "mechanical_efficiency_input": "Standard (Clean & Lubed)"
+    },
+    
+    "simulation_settings": {
+        "_options_tyre": [
+            "Top-Tier Race (e.g. Latex/Tubeless)", 
+            "Mid-Range Performance (e.g. GP5000)",
+            "Training / Endurance (e.g. Gatorskin)", 
+            "Gravel / Cyclocross", 
+            "MTB Knobby"
+        ],
+        "tyre_choice": "Mid-Range Performance (e.g. GP5000)",
+        
+        "_options_surface": [
+            "Smooth New Tarmac", 
+            "Average Road (e.g. Worn Tarmac)",
+            "Rough Road / Chip Seal", 
+            "Light Gravel / Hardpack", 
+            "Heavy Gravel / Dirt"
+        ],
+        "surface_choice": "Average Road (e.g. Worn Tarmac)",
+        "manual_crr_override": 0.0,
+        
+        "_options_friction": [
+             "Dry New Tarmac",
+             "Dry Worn Tarmac",
+             "Wet Tarmac",
+             "Gravel / Dirt"
+        ],
+        "friction_input": "Dry Worn Tarmac",
+        
+        "enable_cornering_model": true,
+        "rider_skill_factor": 0.95,
+        "starting_elevation_m": 0.0
+    },
+    
+    "optimization_settings": {
+        "auto_calculate_power_target": true,
+        "run_greedy_quick": false,
+        "run_greedy_moderate": false,
+        "run_genetic_algorithm": true,
+        "ga_population_size": 10,
+        "ga_num_generations": 10,
+	"ga_mutation_rate": 0.3,
+        "ga_crossover_rate": 0.8,
+        "ga_elitism_count": 2,
+        "ga_mutation_ftp_factor": 0.1
+    }
+}
