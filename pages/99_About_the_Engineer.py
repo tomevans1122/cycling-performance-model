@@ -55,7 +55,7 @@ My career has given me the opportunity to work across projects in both academia 
 # --- RESEARCH PROJECTS SECTION (EXPANDERS) ---
 # Using st.expander allows the user to click to reveal details, keeping the page clean.
 st.subheader("🔍 Research & Technical Projects")
-st.markdown("Some previous projects that I've been involved in:")
+st.markdown("A selection of previous projects that I've been involved in:")
 
 with st.expander("🏉 Concussion Management Pathway (New Zealand Rugby)", expanded=True):
     st.markdown("""
