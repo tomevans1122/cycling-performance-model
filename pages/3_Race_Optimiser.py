@@ -232,8 +232,15 @@ def plot_pacing_strategy_guide(course_name, gpx_track_points, optimized_power_pr
 
     # Power Line
     ax2 = ax1.twinx()
+    
+    ax2.yaxis.tick_left()
+    ax2.yaxis.set_label_position("left")
+    
     ax2.set_ylabel('Target Power (Watts)', fontsize=12, fontweight='bold')
     ax2.plot(distances_km, target_power_curve, color='black', linewidth=2.5, label='Target Power')
+    
+    ax1.yaxis.tick_right()
+    ax1.yaxis.set_label_position("right")
 
     # Traffic Light Color Logic
     def get_zone_color(watts):
