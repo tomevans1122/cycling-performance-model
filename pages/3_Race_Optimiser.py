@@ -741,8 +741,8 @@ if file_path:
                 st.subheader("📊 Simulation Results Comparison")
                 comparison_data = {
                     "Finish Time": [time_base_str, time_opt_str, diff_str],
-                    "Avg Speed": [f"{speed_base:.1f} km/h", f"{speed_opt:.1f} km/h", speed_gain],
-                    "Avg Power": [f"{baseline_watts:.0f} W", f"{avg_pwr:.0f} W", "0 W"]
+                    "Average Speed": [f"{speed_base:.1f} km/h", f"{speed_opt:.1f} km/h", speed_gain],
+                    "Average Power": [f"{baseline_watts:.0f} W", f"{avg_pwr:.0f} W", "0 W"]
                 }
                 st.table(pd.DataFrame(comparison_data, index=["Constant Power (Baseline)", "Optimised Strategy", "Difference"]))
                 
@@ -853,8 +853,8 @@ if file_path:
                             "Segment": i+1, 
                             "Start (km)": f"{m['segment_start_km']:.2f}", 
                             "End (km)": f"{m['segment_end_km']:.2f}",
-                            "Avg Grad (%)": f"{m['avg_gradient']:.1f}", 
-                            "Avg Power (W)": f"{actual_power:.0f}", # <--- CHANGED: Shows reality
+                            "Average Grad (%)": f"{m['avg_gradient']:.1f}", 
+                            "Average Power (W)": f"{actual_power:.0f}", # <--- CHANGED: Shows reality
                             "Zone": zone_label
                         })
                     st.dataframe(flat_metrics, hide_index=True, width="stretch")
