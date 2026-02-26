@@ -568,7 +568,7 @@ if file_path:
         # Heuristic: Score = Distance + (Elevation / 20). 100km Flat = 100 Score. 30km Alpe d'Huez (1450m) = ~102 Score
         # Complexity Score = Dist + (Elev / 20). Limit = 100.
         # This prevents 8-hour simulations on free hardware.
-        COMPLEXITY_LIMIT = 100.0
+        COMPLEXITY_LIMIT = 1000.0
         complexity_score = total_dist_km + (total_climb_m / 20.0) + 10.0
         
         if complexity_score > COMPLEXITY_LIMIT:
