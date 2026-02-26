@@ -14,7 +14,7 @@ This module handles all terrain data processing.
 ### --- Project Module Imports --- ###
 import physics_engine
 import math
-from xml.etree import ElementTree as ET
+from lxml import etree
 import re 
 from scipy.signal import savgol_filter 
 from typing import Tuple, List, Dict, Optional 
@@ -186,11 +186,16 @@ def parse_gpx_file(file_input, force_smoothing_window: Optional[int] = None, aut
     except Exception as e:
         raise ValueError(f"Could not read GPX input: {e}")
     
-    # 2. CLEANING XML NAMESPACES (THE "REGEX HACK")
+
+    # If the XML string contains an encoding declaration, remove it.
+    #xml_string = re.sub(r'<\?xml.*?\?>', '', xml_string)
+
+    # 3. CLEANING XML NAMESPACES (THE "REGEX HACK")
     # GPX files usually start with complex definitions like <gpx xmlns="http://...">.
     # This confuses the Python parser, forcing us to use the full URL every time we look for a tag.
     # This line deletes that definition so we can use simple tag names.
-    xml_string = re.sub(r'\sxmlns="[^"]+"', '', xml_string, count=1)
+    # xml_string = re.sub(r'\sxmlns="[^"]+"', '', xml_string, count=1)
+    xml_string = re.sub(r'<\?xml.*?\?>|\sxmlns="[^"]+"', '', xml_string, count=1)
     
     if not xml_string.strip():
         raise ValueError("GPX file content is empty.")
@@ -198,8 +203,8 @@ def parse_gpx_file(file_input, force_smoothing_window: Optional[int] = None, aut
     # 3. PARSE XML STRUCTURE
     # Convert the text string into a structured "Tree" that Python can navigate.
     try:
-        root = ET.fromstring(xml_string)
-    except ET.ParseError as e:
+        root = etree.fromstring(xml_string)
+    except etree.XMLSyntaxError as e:
         raise ValueError(f"Invalid XML format: {e}")
 
     # 4. ROBUST NAMESPACE STRIPPING (THE "ITERATIVE FIX")
