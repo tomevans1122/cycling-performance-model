@@ -4,4 +4,3 @@ pandas
 matplotlib
 scipy
 pydeck
-lxml
